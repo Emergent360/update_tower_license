@@ -33,3 +33,4 @@
     body_format: json
     validate_certs: false
     force_basic_auth: yes
+  delegate_to: localhost

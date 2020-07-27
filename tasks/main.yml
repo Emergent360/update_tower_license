@@ -32,4 +32,4 @@
     body: "{{ lookup('file','/opt/tower_admin/tower_license.json') }}"
     body_format: json
     validate_certs: false
-    force_basic_auth: true
+    force_basic_auth: yes

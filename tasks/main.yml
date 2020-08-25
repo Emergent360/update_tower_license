@@ -27,8 +27,8 @@
   uri:
     url: https://{{ansible_host}}/api/v2/config/
     method: POST
-    user: admin
-    password: "{{admin_password}}"
+    user: "{{ username }}"
+    password: "{{ password }}"
 #    body: "{{ lookup('file','/opt/tower_admin/tower_license.json') }}"
     body: "{{ tower_license }}"
     body_format: json

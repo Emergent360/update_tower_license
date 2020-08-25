@@ -29,7 +29,8 @@
     method: POST
     user: admin
     password: "{{admin_password}}"
-    body: "{{ lookup('file','/opt/tower_admin/tower_license.json') }}"
+#    body: "{{ lookup('file','/opt/tower_admin/tower_license.json') }}"
+    body: "{{ tower_license }}"
     body_format: json
     validate_certs: false
     force_basic_auth: yes

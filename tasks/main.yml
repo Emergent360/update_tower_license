@@ -1,27 +1,5 @@
 ---
 # tasks file for update_tower_license
-#
-#- debug:
-#    msg: "/opt/tower_admin"
-#
-#- name: auto license feature for Ansible Tower
-#  block:
-#    - name: Check that the provided license exists
-#      stat:
-#        path: "/opt/tower_admin/tower_license.json"
-#      register: stat_result
-#    - debug:
-#        var: stat_result
-#    - fail:
-        #msg: "We need a license located at /opt/tower_admin/tower_license.json"
-#      when:
-#        - not stat_result.stat.exists
-#
-#- name: Ensure eula is accepted if posting license
-  #command: python -c "import json; license = json.loads(open('/opt/tower_admin/tower_license.json', 'r').read()); ceula = license.get('eula_accepted'); license['eula_accepted'] = True if not ceula else ceula ; open('/opt/tower_admin/tower_license.json', 'w').write(json.dumps(license));"
-#  delegate_to: localhost
-#  run_once: true
-#  become: false
 
 - name: Post license key
   uri:
@@ -29,7 +7,6 @@
     method: POST
     user: "{{ local_account_username }}"
     password: "{{ local_account_password }}"
-#    body: "{{ lookup('file','/opt/tower_admin/tower_license.json') }}"
     body: "{{ tower_license }}"
     body_format: json
     validate_certs: false
